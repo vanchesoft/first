@@ -35,7 +35,7 @@ func main() {
 
 	withRaw := false
 	encodedOnly := false
-	maxGetRegister := 8
+	maxGetRegister := 14
 	maxGetRounded := 5
 	// categoryOrigin := []string{"truck"}
 	// categoryOrigin := []string{"heavy"}
@@ -44,7 +44,7 @@ func main() {
 	// categoryOrigin := []string{"motorhome"}
 	// categoryOrigin := []string{"random"}
 	// categoryOrigin := []string{"truck", "heavy", "bus", "trailer", "motorhome", "random"}
-	categoryOrigin := []string{"truck", "heavy", "bus", "trailer", "motorhome"}
+	categoryOrigin := []string{"trailer", "motorhome"}
 
 	if encodedOnly {
 
@@ -76,6 +76,7 @@ func main() {
 			var textWrite DataFormated
 			// not
 			count := 0
+			var numbersJustResolv []int
 			for {
 
 				category = j
@@ -103,17 +104,22 @@ func main() {
 						category = "truck"
 					}
 				}
-
-				min := 5
-				max := 40
-				randomNumber := rand.Intn(max-min) + min
+				minP := 1
+				maxP := 5
+				randomNumberP := rand.Intn(maxP-minP) + minP
 
 				dataLink, _ := base64.StdEncoding.DecodeString("aHR0cHM6Ly92YW5jaGUtYXBpLm5ldGxpZnkuYXBwL2FwaS9nZXQtdmVoaWNsZXM/JmNhdGVnb3J5PQ==")
-				price := "&min_price=500.000&max_price=900.000"
-				if category == "trailer" || category == "motorhome" {
-					price = ""
+				price := "&min_price=500.000&max_price=700.000"
+				sort := "&sortby=price_desc"
+				if category != "truck" {
+					sort = ""
+					price = "&min_price=100.000&max_price=*"
 				}
-				resource := string(dataLink) + category + "&page=" + strconv.Itoa(randomNumber) + "&limit=1&sortby=price_desc" + price
+				if category == "trailer" {
+					sort = "&sortby=price_desc"
+					price = "&min_price=150.000&max_price=300.000"
+				}
+				resource := string(dataLink) + category + "&page=" + strconv.Itoa(randomNumberP) + "&limit=50" + sort + price
 
 				//Getting a client to make the https://api.mercadolibre.com/items/MLU439286635
 				// var response *http.Response
@@ -123,6 +129,9 @@ func main() {
 
 				body, err := ioutil.ReadAll(response.Body)
 				check(err)
+
+				fmt.Println("resource body", string(body))
+
 				// fmt.Fprintf(w, "%s", body)
 				defer response.Body.Close()
 
@@ -133,12 +142,30 @@ func main() {
 
 				if result.Data != nil && len(result.Data) > 0 {
 					// fmt.Println(result.Data)
-					textWrite.Data = append(textWrite.Data, result.Data[0])
+					min := 5
+					max := 50
+					var randomNumber int
+					for {
+						randomNumber = rand.Intn(max-min) + min
+						if !contains(numbersJustResolv, randomNumber) {
+							fmt.Println("Find number", randomNumber)
 
-					count = count + 1
-					if count >= maxGetRegister {
-						break
+							numbersJustResolv = append(numbersJustResolv, randomNumber)
+
+							if result.Data != nil && len(result.Data) > randomNumber {
+								textWrite.Data = append(textWrite.Data, result.Data[0])
+
+								count = count + 1
+								if count >= maxGetRegister {
+									break
+								}
+							}
+						}
 					}
+				}
+
+				if count >= maxGetRegister {
+					break
 				}
 			}
 
@@ -167,6 +194,15 @@ func main() {
 	}
 
 	fmt.Println("end")
+}
+
+func contains(s []int, e int) bool {
+	for _, a := range s {
+		if a == e {
+			return true
+		}
+	}
+	return false
 }
 
 func check(e error) {

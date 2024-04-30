@@ -107,6 +107,8 @@ func main() {
 				max := 40
 				randomNumber := rand.Intn(max-min) + min
 
+				fmt.Println("randomNumber", randomNumber)
+
 				dataLink, _ := b64.StdEncoding.DecodeString("aHR0cHM6Ly92YW5jaGUtYXBpLm5ldGxpZnkuYXBwL2FwaS9nZXQtdmVoaWNsZXM/JmNhdGVnb3J5PQ==")
 				price := "&min_price=500.000&max_price=900.000"
 				if category == "trailer" || category == "motorhome" {

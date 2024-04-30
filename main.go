@@ -37,13 +37,14 @@ func main() {
 	encodedOnly := false
 	maxGetRegister := 8
 	maxGetRounded := 5
-	categoryOrigin := []string{"truck"}
+	// categoryOrigin := []string{"truck"}
 	// categoryOrigin := []string{"heavy"}
 	// categoryOrigin := []string{"bus"}
 	// categoryOrigin := []string{"trailer"}
 	// categoryOrigin := []string{"motorhome"}
 	// categoryOrigin := []string{"random"}
 	// categoryOrigin := []string{"truck", "heavy", "bus", "trailer", "motorhome", "random"}
+	categoryOrigin := []string{"heavy", "bus", "trailer", "motorhome"}
 
 	if encodedOnly {
 

@@ -44,7 +44,7 @@ func main() {
 	// categoryOrigin := []string{"motorhome"}
 	// categoryOrigin := []string{"random"}
 	// categoryOrigin := []string{"truck", "heavy", "bus", "trailer", "motorhome", "random"}
-	categoryOrigin := []string{"heavy", "bus", "trailer", "motorhome"}
+	categoryOrigin := []string{"truck", "heavy", "bus", "trailer", "motorhome"}
 
 	if encodedOnly {
 
@@ -71,11 +71,11 @@ func main() {
 	for _, j := range categoryOrigin {
 
 		fmt.Println("Start Category", j)
-		// not
-		count := 0
 		rounded := 0
 		for {
 			var textWrite DataFormated
+			// not
+			count := 0
 			for {
 
 				category = j

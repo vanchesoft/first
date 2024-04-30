@@ -44,7 +44,7 @@ func main() {
 	// categoryOrigin := []string{"motorhome"}
 	// categoryOrigin := []string{"random"}
 	// categoryOrigin := []string{"truck", "heavy", "bus", "trailer", "motorhome", "random"}
-	categoryOrigin := []string{"truck", "heavy", "bus", "trailer", "motorhome"}
+	categoryOrigin := []string{"bus"}
 
 	if encodedOnly {
 

@@ -44,7 +44,7 @@ func main() {
 	// categoryOrigin := []string{"motorhome"}
 	// categoryOrigin := []string{"random"}
 	// categoryOrigin := []string{"truck", "heavy", "bus", "trailer", "motorhome", "random"}
-	categoryOrigin := []string{"heavy"}
+	categoryOrigin := []string{"truck", "heavy", "bus", "trailer", "motorhome"}
 
 	if encodedOnly {
 
@@ -157,7 +157,7 @@ func main() {
 							numbersJustResolv = append(numbersJustResolv, randomNumber)
 
 							if result.Data != nil && len(result.Data) > randomNumber {
-								textWrite.Data = append(textWrite.Data, result.Data[0])
+								textWrite.Data = append(textWrite.Data, result.Data[randomNumber])
 
 								count = count + 1
 								if count >= maxGetRegister {

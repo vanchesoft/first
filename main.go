@@ -44,7 +44,7 @@ func main() {
 	// categoryOrigin := []string{"motorhome"}
 	// categoryOrigin := []string{"random"}
 	// categoryOrigin := []string{"truck", "heavy", "bus", "trailer", "motorhome", "random"}
-	categoryOrigin := []string{"trailer", "motorhome"}
+	categoryOrigin := []string{"heavy"}
 
 	if encodedOnly {
 
@@ -118,6 +118,10 @@ func main() {
 				if category == "trailer" {
 					sort = "&sortby=price_desc"
 					price = "&min_price=150.000&max_price=300.000"
+				}
+				if category == "heavy" {
+					sort = "&sortby=price_desc"
+					price = "&min_price=100.000&max_price=*"
 				}
 				resource := string(dataLink) + category + "&page=" + strconv.Itoa(randomNumberP) + "&limit=50" + sort + price
 

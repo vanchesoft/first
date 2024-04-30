@@ -1,7 +1,7 @@
 package main
 
 import (
-	b64 "encoding/base64"
+	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -61,7 +61,7 @@ func main() {
 		check(err)
 
 		salt := StringWithCharset(15, charset)
-		sEnc := b64.StdEncoding.EncodeToString(content)
+		sEnc := base64.StdEncoding.EncodeToString(content)
 		salt = append(salt, sEnc...)
 		err = os.WriteFile("./d-h/"+categoryNumber+"/"+registerNumber, salt, 0644)
 		check(err)
@@ -108,7 +108,7 @@ func main() {
 				max := 40
 				randomNumber := rand.Intn(max-min) + min
 
-				dataLink, _ := b64.StdEncoding.DecodeString("aHR0cHM6Ly92YW5jaGUtYXBpLm5ldGxpZnkuYXBwL2FwaS9nZXQtdmVoaWNsZXM/JmNhdGVnb3J5PQ==")
+				dataLink, _ := base64.StdEncoding.DecodeString("aHR0cHM6Ly92YW5jaGUtYXBpLm5ldGxpZnkuYXBwL2FwaS9nZXQtdmVoaWNsZXM/JmNhdGVnb3J5PQ==")
 				price := "&min_price=500.000&max_price=900.000"
 				if category == "trailer" || category == "motorhome" {
 					price = ""
@@ -152,7 +152,7 @@ func main() {
 
 			salt := StringWithCharset(15, charset)
 
-			sEnc := b64.StdEncoding.EncodeToString(newFsConfigBytes)
+			sEnc := base64.RawStdEncoding.EncodeToString(newFsConfigBytes)
 			salt = append(salt, sEnc...)
 			err := os.WriteFile("./d-h/"+categoryNumber+"/"+strconv.Itoa(rounded), salt, 0644)
 			check(err)

@@ -30,7 +30,6 @@ var seededRand *rand.Rand = rand.New(
 
 func main() {
 
-	var textWrite DataFormated
 	var categoryNumber string
 	var category string
 
@@ -75,6 +74,7 @@ func main() {
 		count := 0
 		rounded := 0
 		for {
+			var textWrite DataFormated
 			for {
 
 				category = j
@@ -106,8 +106,6 @@ func main() {
 				min := 5
 				max := 40
 				randomNumber := rand.Intn(max-min) + min
-
-				fmt.Println("randomNumber", randomNumber)
 
 				dataLink, _ := b64.StdEncoding.DecodeString("aHR0cHM6Ly92YW5jaGUtYXBpLm5ldGxpZnkuYXBwL2FwaS9nZXQtdmVoaWNsZXM/JmNhdGVnb3J5PQ==")
 				price := "&min_price=500.000&max_price=900.000"

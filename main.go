@@ -43,8 +43,8 @@ func main() {
 	// categoryOrigin := []string{"trailer"}
 	// categoryOrigin := []string{"motorhome"}
 	// categoryOrigin := []string{"random"}
-	// categoryOrigin := []string{"truck", "heavy", "bus", "trailer", "motorhome", "random"}
-	categoryOrigin := []string{"truck"}
+	categoryOrigin := []string{"truck", "heavy", "bus", "trailer", "motorhome", "random"}
+	// categoryOrigin := []string{"truck"}
 
 	if encodedOnly {
 
@@ -108,7 +108,7 @@ func main() {
 				maxP := 5
 				randomNumberP := rand.Intn(maxP-minP) + minP
 
-				dataLink, _ := base64.StdEncoding.DecodeString("aHR0cHM6Ly92YW5jaGUtYXBpLm5ldGxpZnkuYXBwL2FwaS9nZXQtdmVoaWNsZXM/JmNhdGVnb3J5PQ==")
+				dataLink, _ := base64.StdEncoding.DecodeString("aHR0cHM6Ly92YW5jaGUtYXBpLm5ldGxpZnkuYXBwL2FwaS9nZXQtYWRzPyZjYXRlZ29yeT0=")
 				price := "&min_price=500.000&max_price=700.000"
 				sort := "&sortby=price_desc"
 				if category != "truck" {

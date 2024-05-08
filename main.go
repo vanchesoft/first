@@ -35,15 +35,15 @@ func main() {
 
 	withRaw := false
 	encodedOnly := false
-	maxGetRegister := 14
-	maxGetRounded := 5
+	maxGetRegister := 8
+	maxGetRounded := 20
 	// categoryOrigin := []string{"truck"}
 	// categoryOrigin := []string{"heavy"}
 	// categoryOrigin := []string{"bus"}
 	// categoryOrigin := []string{"trailer"}
 	// categoryOrigin := []string{"motorhome"}
 	// categoryOrigin := []string{"random"}
-	categoryOrigin := []string{"truck", "heavy", "bus", "trailer", "motorhome", "random"}
+	categoryOrigin := []string{"truck", "heavy", "bus", "trailer", "motorhome"}
 	// categoryOrigin := []string{"truck"}
 
 	if encodedOnly {
@@ -134,7 +134,7 @@ func main() {
 				body, err := ioutil.ReadAll(response.Body)
 				check(err)
 
-				fmt.Println("resource body", string(body))
+				// fmt.Println("resource body", string(body))
 
 				// fmt.Fprintf(w, "%s", body)
 				defer response.Body.Close()

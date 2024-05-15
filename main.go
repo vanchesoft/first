@@ -109,19 +109,19 @@ func main() {
 				randomNumberP := rand.Intn(maxP-minP) + minP
 
 				dataLink, _ := base64.StdEncoding.DecodeString("aHR0cHM6Ly92YW5jaGUtYXBpLm5ldGxpZnkuYXBwL2FwaS9nZXQtYWRzP3NlYXJjaD0rJmNhdGVnb3J5PQ==")
-				price := "&min_price=500.000&max_price=700.000"
+				price := ""
 				sort := "&sortby=price_desc"
 				if category != "truck" {
 					sort = ""
-					price = "&min_price=100.000&max_price=*"
+					price = "&min_price=10.000&max_price=*"
 				}
 				if category == "trailer" {
 					sort = "&sortby=price_desc"
-					price = "&min_price=150.000&max_price=300.000"
+					price = "&min_price=15.000&max_price=*"
 				}
 				if category == "heavy" {
 					sort = "&sortby=price_desc"
-					price = "&min_price=100.000&max_price=*"
+					price = "&min_price=10.000&max_price=*"
 				}
 				resource := string(dataLink) + category + "&page=" + strconv.Itoa(randomNumberP) + "&limit=50" + sort + price
 

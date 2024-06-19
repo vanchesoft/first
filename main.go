@@ -108,7 +108,7 @@ func main() {
 				maxP := 5
 				randomNumberP := rand.Intn(maxP-minP) + minP
 
-				dataLink, _ := base64.StdEncoding.DecodeString("aHR0cHM6Ly82NjY5OGQ3MzgwZGY5NjAwMDhjOGQ3NmEtLXRydWNrLWwubmV0bGlmeS5hcHAvYXBpL2dldC1hZHM/c2VhcmNoPSZjYXRlZ29yeT0=")
+				dataLink, _ := base64.StdEncoding.DecodeString("aHR0cHM6Ly92YW5jaGUuY29tLmJyL2FwaS9nZXQtYWRzP3NlYXJjaD0mY2F0ZWdvcnk9")
 				price := ""
 				sort := "&sortby=price_desc"
 				if category != "truck" {
@@ -135,7 +135,7 @@ func main() {
 				check(err)
 
 				// fmt.Println("resource body", string(body))
-				// fmt.Println("AAAAAAAAAA", resource)
+				fmt.Println("AAAAAAAAAA", resource)
 
 				// fmt.Fprintf(w, "%s", body)
 				defer response.Body.Close()

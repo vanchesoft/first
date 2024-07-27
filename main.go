@@ -108,8 +108,8 @@ func main() {
 				maxP := 5
 				randomNumberP := rand.Intn(maxP-minP) + minP
 
-				dataLink, _ := base64.StdEncoding.DecodeString("aHR0cDovL2xvY2FsaG9zdDozMDAwL2FwaS9nZXQtYWRzP3NlYXJjaD0mY2F0ZWdvcnk9")
-				// dataLink, _ := base64.StdEncoding.DecodeString("aHR0cHM6Ly92YW5jaGUuY29tLmJyL2FwaS9nZXQtYWRzP3NlYXJjaD0mY2F0ZWdvcnk9")
+				dataLink, _ := base64.StdEncoding.DecodeString("aHR0cDovL2xvY2FsaG9zdDozMDAwL2FwaS9nZXQtYWRzP3NlYXJjaD0uJmNhdGVnb3J5PQ==")
+				// dataLink, _ := base64.StdEncoding.DecodeString("aHR0cHM6Ly92YW5jaGUuY29tLmJyL2FwaS9nZXQtYWRzP3NlYXJjaD0uJmNhdGVnb3J5PQ==")
 				price := ""
 				sort := "&sortby=price_desc"
 				if category != "truck" {

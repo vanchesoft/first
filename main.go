@@ -36,7 +36,7 @@ func main() {
 	withRaw := false
 	encodedOnly := false
 	maxGetRegister := 8
-	maxGetRounded := 20
+	maxGetRounded := 5
 	// categoryOrigin := []string{"truck"}
 	// categoryOrigin := []string{"heavy"}
 	// categoryOrigin := []string{"bus"}
